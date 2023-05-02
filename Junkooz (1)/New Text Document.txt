@@ -1,0 +1,11 @@
+</table>
+<p align="center" style="color:purple";><b><i>Junkooz helps you sell your scrap easily and get better prices and offers. We buy all recyclable scrap materials from you like newspaper, books, paper, plastic bottle, e-waste.</b></i></p>
+<br>
+<p style="color:brown">"Our goal is to create and develop "Modern" youth as responsible citizens with multidimensional personalities by inculcating among students & citizens a blending of Environmental awareness, compassionate and progressive attitude towards society."</p>
+<table border=3 align="center">
+<tr><td><b>Details</b></td><td><b>Links</b></td></tr>
+
+<tr><td>Scrap Pickup</td><td><a href="Scrap Pickup.html" vlink="red">Click Here</a></td></tr>
+<tr><td>Scrap Rate Calculator</td><td><a href="Scrap Rate Calculator.html" vlink="red">Click Here</a></td></tr>
+<tr><td>Corporate Tie-up</td><td><a href="Corporate Tie-up.html" vlink="red">Click Here</a></td></tr>
+</table>
