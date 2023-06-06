@@ -23,19 +23,19 @@ class adjmatlist
 };
 void adjmatlist::getgraph()
 {
-   cout<<"\n enter no. of cities(max. 20)";
+   cout<<"\n enter no. of cities(max. 20): ";
    cin>>n;
-   cout<<"\n enter name of cities";
+   cout<<"\n enter name of cities:";
    for(i=0;i<n;i++)
      cin>>v[i];         
    for(i=0;i<n;i++)
    { 
       for(j=0;j<n;j++)
-      {  cout<<"\n if path is present between city "<<v[i]<<" and "<<v[j]<<" then press enter y otherwise n"; 
+      {  cout<<"\n if path is present between city "<<v[i]<<" and "<<v[j]<<" then press enter y otherwise n:"; 
          cin>>ch;
          if(ch=='y')
          { 
-           cout<<"\n enter time required to reach city "<<v[j]<<" from "<<v[i]<<" in minutes";
+           cout<<"\n enter time required to reach city "<<v[j]<<" from "<<v[i]<<" in minutes:";
            cin>>m[i][j];
          }
          else if(ch=='n')
@@ -45,7 +45,6 @@ void adjmatlist::getgraph()
       }
    }       
       adjlist();
-        
 }
 void adjmatlist::adjlist()
 {      cout<<"\n ****";
@@ -55,7 +54,6 @@ void adjmatlist::adjlist()
           p->vertex=v[i];   
           head[i]=p;      cout<<"\n"<<head[i]->vertex;
        }
-     
        for(i=0;i<n;i++)
        {  for(j=0;j<n;j++)
           {
@@ -63,7 +61,7 @@ void adjmatlist::adjlist()
                    {      
                          node *p=new(struct node);
                          p->vertex=v[j];
-                         p->time=m[i][j]; 
+                         p->time=m[i][j];
                          p->next=NULL;
                          if(head[i]->next==NULL)
                          {  head[i]->next=p;   }
@@ -73,12 +71,9 @@ void adjmatlist::adjlist()
                          {   temp=temp->next;  }
                              temp->next=p;
                          }
-
                    }
-
           }
        }  
-     
 }
 void adjmatlist::displaym()
 {    cout<<"\n";
@@ -95,12 +90,9 @@ void adjmatlist::displaym()
 }   
 void adjmatlist::displaya()
 {     
-       cout<<"\n adjacency list is";
-     
+       cout<<"\n adjacency list is:";
        for(i=0;i<n;i++)
        { 
-                 
-             
                          if(head[i]==NULL)
                          {   cout<<"\n adjacency list not present";  break;   }
                          else
@@ -109,38 +101,25 @@ void adjmatlist::displaya()
                          temp=head[i]->next;
                          while(temp!=NULL)
                          {  cout<<"-> "<<temp->vertex;
-                            temp=temp->next;  }
-                            
+                            temp=temp->next;  }             
                          }
-
-                  
-
-         
-       }
+   }
      
-         cout<<"\n path and time required to reach cities is";
+         cout<<"\n path and time required to reach cities is: ";
        
        for(i=0;i<n;i++)
-       { 
-                 
-             
-                         if(head[i]==NULL)
+       {                 
+                if(head[i]==NULL)
                          {   cout<<"\n adjacency list not present";  break;   }
                          else
-                         { 
-                           
+                         {                           
                          temp=head[i]->next;
                          while(temp!=NULL)
                          {  cout<<"\n"<<head[i]->vertex;
                             cout<<"-> "<<temp->vertex<<"\n   [time required: "<<temp->time<<" min ]";
-                            temp=temp->next;  }
-                            
+                            temp=temp->next;  }                            
                          }
-
-                  
-
-         
-       }
+            }
 }
 int main()
 {  int m;   
@@ -148,11 +127,11 @@ int main()
 
    while(1)
    {
-   cout<<"\n\n enter the choice";
    cout<<"\n 1.enter graph";
    cout<<"\n 2.display adjacency matrix for cities";
    cout<<"\n 3.display adjacency list for cities";
    cout<<"\n 4.exit";
+   cout<<"\n\n enter the choice:";
    cin>>m;
   
         switch(m)
@@ -169,4 +148,5 @@ int main()
          }
     }
     return 0;
-}           
+}                            
+

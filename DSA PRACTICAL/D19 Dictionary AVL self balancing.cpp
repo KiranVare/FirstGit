@@ -7,9 +7,7 @@ struct AVLnode {
     string cMean;
     AVLnode *left,*right;
     int iHt;
-
 };
-
 
 class AVLtree {
 
@@ -19,7 +17,7 @@ public:
         Root = NULL;
     }
     AVLnode* insert (AVLnode*, int, string);
-   // AVLnode* deletE (AVLnode*, int);
+    AVLnode* deletE (AVLnode*, int);
     AVLnode* LL (AVLnode*);
     AVLnode* RR (AVLnode*);
     AVLnode* LR (AVLnode*);
@@ -71,7 +69,6 @@ AVLnode* AVLtree::insert (AVLnode *root, int nWord, string nMean) {
 }
 
 
-/***
 AVLnode *AVLtree::deletE (AVLnode *curr, int x) {
     AVLnode *temp;
     if (curr == NULL) {
@@ -117,7 +114,7 @@ AVLnode *AVLtree::deletE (AVLnode *curr, int x) {
     }
 
     return (curr);
-} **/
+}
 
 
 int AVLtree::height (AVLnode* curr) {
@@ -220,7 +217,7 @@ int main () {
             case 3:
                 cout << "\nEnter the word to be deleted : ";
                 cin >> word;
-                //avl.Root = avl.deletE (avl.Root, word);
+                avl.Root = avl.deletE (avl.Root, word);
                 break;
             case 4:
                 exit (0);
@@ -230,96 +227,3 @@ int main () {
     return 0;
 }
 
-/*
---------------------------- OUTPUT ---------------------------
---------------------------------------
-        AVL TREE IMPLEMENTATION
---------------------------------------
-                MENU
-1.Insert 2.Inorder 3.Delete 4.Exit
---------------------------------
-Enter your choice: 1
-Enter Word: 1
-Enter Meaning: a
-                MENU
-1.Insert 2.Inorder 3.Delete 4.Exit
---------------------------------
-Enter your choice: 1
-Enter Word: 2
-Enter Meaning: b
-                MENU
-1.Insert 2.Inorder 3.Delete 4.Exit
---------------------------------
-Enter your choice: 1
-Enter Word: 3
-Enter Meaning: c
-                MENU
-1.Insert 2.Inorder 3.Delete 4.Exit
---------------------------------
-Enter your choice: 2
-Inorder Traversal:
-        WORD    MEANING
-        1       a
-        2       b
-        3       c
-Preorder Traversal:
-        WORD    MEANING
-        2       b
-        1       a
-        3       c
-                MENU
-1.Insert 2.Inorder 3.Delete 4.Exit
---------------------------------
-Enter your choice: 1
-Enter Word: 4
-Enter Meaning: d
-                MENU
-1.Insert 2.Inorder 3.Delete 4.Exit
---------------------------------
-Enter your choice: 3
-Enter the word to be deleted : 3
-Word deleted Successfully!
-                MENU
-1.Insert 2.Inorder 3.Delete 4.Exit
---------------------------------
-Enter your choice: 2
-Inorder Traversal:
-        WORD    MEANING
-        1       a
-        2       b
-        4       d
-Preorder Traversal:
-        WORD    MEANING
-        2       b
-        1       a
-        4       d
-                MENU
-1.Insert 2.Inorder 3.Delete 4.Exit
---------------------------------
-Enter your choice: 1
-Enter Word: 2
-Enter Meaning: x
-Redundant AVLnode
-                MENU
-1.Insert 2.Inorder 3.Delete 4.Exit
---------------------------------
-Enter your choice: 3
-Enter the word to be deleted : 2
-Word deleted Successfully!
-                MENU
-1.Insert 2.Inorder 3.Delete 4.Exit
---------------------------------
-Enter your choice: 2
-Inorder Traversal:
-        WORD    MEANING
-        1       a
-        4       b
-Preorder Traversal:
-        WORD    MEANING
-        4       b
-        1       a
-                MENU
-1.Insert 2.Inorder 3.Delete 4.Exit
---------------------------------
-Enter your choice: 4
-*/
