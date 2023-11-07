@@ -1,0 +1,45 @@
+-- Create the jobs table
+CREATE TABLE jobs (
+ job_id VARCHAR(10) PRIMARY KEY,
+ job_title VARCHAR(50),
+ min_sal DECIMAL(10, 2),
+ max_sal DECIMAL(10, 2)
+);
+
+-- Insert 10 records into the jobs table
+INSERT INTO jobs (job_id, job_title, min_sal, max_sal)
+VALUES
+ ('JOB001', 'Manager', 50000.00, 80000.00),
+ ('JOB002', 'Developer', 40000.00, 70000.00),
+ ('JOB003', 'Analyst', 35000.00, 60000.00),
+ ('JOB004', 'Designer', 35000.00, 60000.00),
+ ('JOB005', 'Salesperson', 30000.00, 55000.00),
+ ('JOB006', 'Engineer', 45000.00, 75000.00),
+ ('JOB007', 'Technician', 32000.00, 55000.00),
+ ('JOB008', 'Administrator', 40000.00, 70000.00),
+ ('JOB009', 'Accountant', 35000.00, 60000.00),
+ ('JOB010', 'HR Specialist', 35000.00, 60000.00);
+
+-- Create the job_history table
+CREATE TABLE job_history (
+ employee_id INT PRIMARY KEY,
+ start_date DATE,
+ end_date DATE,
+ job_id VARCHAR(10),
+ department_id INT,
+ FOREIGN KEY (job_id) REFERENCES jobs(job_id)
+);
+
+-- Insert 10 records into the job_history table
+INSERT INTO job_history (employee_id, start_date, end_date, job_id, department_id)
+VALUES
+ (101, '2023-01-15', '2023-03-30', 'JOB001', 1),
+ (102, '2023-02-20', '2023-04-30', 'JOB002', 2),
+ (103, '2023-03-10', '2023-05-15', 'JOB003', 3),
+ (104, '2023-04-05', '2023-06-20', 'JOB004', 1),
+ (105, '2023-05-15', '2023-07-31', 'JOB005', 4),
+ (106, '2023-06-20', '2023-08-15', 'JOB006', 2),
+ (107, '2023-07-10', '2023-09-30', 'JOB007', 1),
+ (108, '2023-08-05', '2023-10-31', 'JOB008', 3),
+ (109, '2023-09-15', '2023-11-30', 'JOB009', 4),
+ (110, '2023-10-20', '2023-12-31', 'JOB010', 2);

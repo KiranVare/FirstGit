@@ -1,0 +1,118 @@
+Consider the relation employee (emp_id,e_name,salary ,Date of Joining,Dapt_no,Designation,location) perform basic SQL 
+operations.
+1. Display employees whose name contains letter ‘e’.
+2. Display different types of designation
+3. Display name and salary of employee whose location is Mumbai
+4. Display name and department of employee working in Manager or Marketing department
+5. Display the department name whose employees are more than one
+6. Rename employee table as emp1.
+7. Add a new column city in the employee table.
+
+
+step 1:- creating a table
+
+CREATE TABLE employee (
+    emp_id INT PRIMARY KEY,
+    e_name VARCHAR(255),
+    salary DECIMAL(10, 2),
+    Date_of_Joining DATE,
+    Dept_no INT,
+    Designation VARCHAR(255)
+);
+
+step 2:- inserting a value
+INSERT INTO employee VALUES
+(1, 'Manish', 50000.00, '2003-01-01', 101, 'Manager'),
+(2, 'ruturaj', 60000.00, '2002-05-10', 102, 'Marketing'),
+(3, 'Satyaraj', 55000.00, '2004-06-22', 103, 'SDE'),
+(4, 'Atharva', 40000.00, '2003-05-07', 104, 'Manager'),
+(5, 'Abhishek', 69000.00, '2003-10-10', 105, 'SDE2'),
+(6, 'virendra', 36000.00, '2003-09-29', 106, 'SDE3'),
+(7, 'mayank', 32000.00, '2003-09-05', 107, 'Developer'),
+(8, 'prajwal', 12000.00, '2003-01-27', 108, 'Manager'),
+(9, 'sudhanshu', 14000.00, '2003-02-14', 109, 'Marketing'),
+(10, 'kiran', 10000.00, '2003-08-23', 110, 'CEO');
+
+
+step 3:- 1. Display employees whose name contains letter ‘e’.
+
+SELECT * FROM employee WHERE e_name LIKE '%e%';
+
+step 4:- 2. Display different types of designation
+
+SELECT DISTINCT Designation FROM employee;
+
+step 5:- 4.Display name and department of employee working in Manager or Marketing department
+
+SELECT e_name, Designation
+FROM employee
+WHERE Designation IN ('Manager', 'Marketing');
+
+step 6:- 5. Display the department name whose employees are more than one
+
+SELECT Designation, COUNT(*) AS employee_count
+FROM employee
+GROUP BY Designation
+HAVING COUNT(*) > 1;
+
+step 7:- 6. Rename employee table as emp1.
+
+ALTER TABLE employee RENAME TO emp1;
+
+step 8:- 7. Add a new column city in the employee table.
+
+ALTER TABLE emp1
+ADD City varchar(255);
+
+
+step 9:- updating the table after adding city coloumn
+UPDATE emp1
+SET City = 'Mumbai'
+WHERE emp_id = 1;
+
+UPDATE emp1
+SET City = 'Pune'
+WHERE emp_id = 2;
+
+UPDATE emp1
+SET City = 'Mumbai'
+WHERE emp_id = 3;
+
+UPDATE emp1
+SET City = 'Nashik'
+WHERE emp_id = 4;
+
+UPDATE emp1
+SET City = 'Karad'
+WHERE emp_id = 5;
+
+UPDATE emp1
+SET City = 'Nagpur'
+WHERE emp_id = 6;
+
+UPDATE emp1
+SET City = 'Manchar'
+WHERE emp_id = 7;
+
+UPDATE emp1
+SET City = 'Mumbai'
+WHERE emp_id = 8;
+
+UPDATE emp1
+SET City = 'Pune'
+WHERE emp_id = 9;
+
+UPDATE emp1
+SET City = 'Mumbai'
+WHERE emp_id = 10;
+
+step 10:- 3. Display name and salary of employee whose location is Mumbai
+
+
+SELECT e_name, salary
+FROM emp1
+WHERE city = 'Mumbai';
+
+
+
+

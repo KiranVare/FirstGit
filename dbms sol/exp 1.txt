@@ -1,0 +1,64 @@
+step 1:-
+Create table employee:
+
+CREATE TABLE employee (
+  emp_id INT,
+  e_name VARCHAR(50),
+  salary DECIMAL(10, 2),
+  Date_of_Joining DATE,
+  Dept_no INT,
+  Designation VARCHAR(50)
+);
+
+
+step 2. Insert 10 records in table.:-
+
+INSERT INTO employee (emp_id, e_name, salary, Date_of_Joining, Dept_no, Designation)
+VALUES
+(1, 'Manish', 50000.00, '2003-01-01', 101, 'Manager'),
+(2, 'ruturaj', 60000.00, '2002-05-10', 102, 'SDE'),
+(3, 'Satyaraj', 55000.00, '2004-06-22', 103, 'Manager'),
+(4, 'Atharva', 40000.00, '2003-05-07', 104, 'Manager'),
+(5, 'Abhishek', 69000.00, '2003-10-10', 105, 'Manager'),
+(6, 'virendra', 36000.00, '2003-09-29', 106, 'Manager'),
+(7, 'mayank', 32000.00, '2003-09-05', 107, 'Manager'),
+(8, 'prajwal', 12000.00, '2003-01-27', 108, 'Manager'),
+(9, 'sudhanshu', 14000.00, '2003-02-14', 109, 'Manager'),
+(10, 'kiran', 10000.00, '2003-08-23', 110, 'Manager');
+
+step 3. Create a view emp_vl of table employee which has emp_id , name and dept-attributes
+
+CREATE VIEW emp_vw AS
+SELECT emp_id, e_name, Dept_no
+FROM employee;
+
+
+Step 4 Create view of table:-
+CREATE OR REPLACE VIEW emp_view AS
+SELECT emp_id, e_name, Dept_no
+FROM employee;
+
+step 5:- Update dept of any employee in view. Check whether it gets updated or not.
+
+UPDATE emp_vw
+SET Dept_no = 104
+WHERE emp_id = 1;
+
+step 6:-  Create emp_id as primary key and show indices on table employee
+
+ALTER TABLE employee
+ADD CONSTRAINT pk_employee PRIMARY KEY (emp_id);
+
+
+step 7:- Show indices on table
+
+SHOW INDEXES FROM employee;
+
+SELECT INDEX_NAME, TABLE_NAME
+FROM USER_INDEXES
+WHERE TABLE_NAME = 'EMPLOYEE';
+
+
+step 8:- Create user defined index on any coloum 
+
+CREATE INDEX idx_salary ON employee(salary);
